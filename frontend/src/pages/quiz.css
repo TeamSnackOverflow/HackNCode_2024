@@ -22,7 +22,7 @@
 .quiz-container .active-question-no {
   font-size: 32px;
   font-weight: 500;
-  color: #800080;
+  color: #1dc071;
 }
 
 .quiz-container .total-question {
@@ -56,12 +56,12 @@
 }
 
 .quiz-container ul .selected-answer {
-  background: #ffd6ff;
-  border: 1px solid #800080;
+  background: #1dc071;
+  border: 1px solid #1dc071;
 }
 
 .quiz-container button {
-  background: linear-gradient(90.04deg, #800080 0.03%, #ffc0cb 99.96%);
+  background: linear-gradient(90.04deg, #06f016 0.03%, #1dc071 99.96%);
   border-radius: 9px;
   font-size: 18px;
   color: #ffffff;
@@ -95,6 +95,6 @@
 }
 
 .result p span {
-  color: #800080;
+  color: #1dc071;
   font-size: 22px;
 }

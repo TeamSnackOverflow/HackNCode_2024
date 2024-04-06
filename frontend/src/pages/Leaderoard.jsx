@@ -4,6 +4,7 @@ import axios from 'axios';
 import { Loader } from '../components';
 import { loader } from '../assets';
 
+
 function Leaderoard() {
     const [isLoading, setIsLoading] = useState(true);
     const [Users, setUsers] = useState([]);

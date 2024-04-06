@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { quiz } from './questions'
 import './quiz.css'
+import axios from 'axios'
+import { toast } from 'react-toastify';
 
 const Quiz = () => {
   const [activeQuestion, setActiveQuestion] = useState(0)
@@ -32,6 +34,12 @@ const Quiz = () => {
     } else {
       setActiveQuestion(0)
       setShowResult(true)
+      axios.post('http://localhost:5000/addPoints', {points: (result.correctAnswers)*20}, {withCredentials: true})
+      .then((res)=>{
+        console.log('Added: '+ (result.correctAnswers)*20)
+        toast.success(res.data.message)
+      })
+      .catch((e)=>{toast.error("Error : " + e)})
     }
   }
 
@@ -48,12 +56,13 @@ const Quiz = () => {
 
   return (
     <div className="flex justify-center">
-      <div className="quiz-container ">
+      <h1 className="font-epilogue font-semibold font-['Ubuntu'] text-xl pb-4 md:text-4xl text-white text-center md:text-left">Daily Quiz</h1>
+      <div className="quiz-container -ml-[200px]">
       {!showResult ? (
         <div>
           <div>
-            <span className="active-question-no text-white">{addLeadingZero(activeQuestion + 1)}</span>
-            <span className="total-question text-white">/{addLeadingZero(questions.length)}</span>
+            <span className="active-question-no">{addLeadingZero(activeQuestion + 1)}</span>
+            <span className="total-question">/{addLeadingZero(questions.length)}</span>
           </div>
           <h2>{question}</h2>
           <ul>
@@ -87,10 +96,13 @@ const Quiz = () => {
           <p>
             Wrong Answers:<span> {result.wrongAnswers}</span>
           </p>
+          <p>
+            Points Earned:<span> {result.correctAnswers*20}</span>
+          </p>
         </div>
       )}
     </div>
-    </div>
+  </div>
   )
 }
 

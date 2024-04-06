@@ -32,7 +32,17 @@ router.get('/checkLoggedUser' , authenticate, (req,res) => {
         return res.status(401).json({message: 'No User Logged in'})
 })
 
-
+router.post('/addPoints',authenticate, (req,res) => {
+    const {points} = req.body
+    User.updateOne(
+        {_id: req.UserID}, 
+        {
+            points: req.rootUser.points + Number(points),
+        }
+        )
+        .then(()=>{res.status(201).json({message :`Successfully added ${points} to ${req.rootUser.name}`})})
+        .catch((e)=>{console.log(e)})
+})
 
 router.get('/logout' , (req,res) => {
     res.clearCookie("jwtoken", {path: "/",domain:"http://localhost:5000", httpOnly: true, secure: true, sameSite:"none" });
