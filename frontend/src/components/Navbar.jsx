@@ -38,6 +38,30 @@ const Navbar = () => {
     })
   },[])
 
+  const ProgressBar = () => {
+    const circleStyle = {
+      stroke: 'hsl(250, 70%, 50%)', // Adjust color as needed
+      strokeLinecap: 'round',
+      strokeWidth: 8,
+    };
+  
+    const radius = 25; // Adjust radius as needed
+    const circumference = 2 * Math.PI * radius;
+  
+    const fill = (progress / 100) * circumference;
+  
+    return (
+      <div className="progress-bar">
+        <svg width={radius * 2} height={radius * 2}>
+          <circle cx={radius} cy={radius} r={radius} style={circleStyle} />
+          <circle cx={radius} cy={radius} r={radius} fill="transparent" strokeDasharray={circumference} strokeDashoffset={fill} />
+        </svg>
+        <span className="level">Level {level}</span>
+      </div>
+    );
+  };
+  
+
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6 ">
       <div className="lg:flex-1 flex flex-row max-w-[458px] py-2 pl-4 pr-2 h-[52px] bg-[#1c1c24] rounded-[100px]">
@@ -69,23 +93,6 @@ const Navbar = () => {
         
         { state ? 
         <>
-          <CustomButton 
-            btnType="button"
-            title='Create a campaign'
-            styles='bg-[#1dc071]'
-            handleClick={() => {navigate('create-campaign')}}
-          />
-
-          <CustomButton 
-            btnType="button"
-            title='Logout'
-            styles='bg-[#1dc071]'
-            handleClick={() => {
-              Logout()
-              dispatch({type: "USER" , payload : false})
-              navigate('/')
-            }}
-          />
 
           <AvatarMenu/>
           

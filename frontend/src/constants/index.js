@@ -7,9 +7,9 @@ export const navlinks = [
     link: '/',
   },
   {
-    name: 'Docs',
+    name: 'Diagram',
     imgUrl: Atom,
-    link: '/lookup',
+    link: '/docs',
   },
   {
     name: 'Quiz',

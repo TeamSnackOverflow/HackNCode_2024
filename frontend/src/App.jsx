@@ -9,6 +9,7 @@ import Lookup from './pages/Lookup';
 import Quiz from './pages/Quiz';
 import Leaderoard from './pages/Leaderoard';
 import Duel from './pages/Duel';
+import Docs from './pages/Docs';
 
 
 export const UserContext = createContext();
@@ -33,6 +34,7 @@ const App = () => {
             <Route path="/duel" element={<Duel/>}/>
             <Route path="/leaderboard" element={<Leaderoard/>}/>
             <Route path="/quiz" element={<Quiz/>} />
+            <Route path="/docs" element={<Docs/>} />
           </Routes>
           
         </div>

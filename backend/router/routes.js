@@ -27,7 +27,7 @@ router.get('/currentUser' ,authenticate, (req,res) => {
 
 router.get('/checkLoggedUser' , authenticate, (req,res) => {
     if (req.rootUser)
-        return res.status(200).json({message: 'User is logged in'})
+        return res.status(200).json({user: req.rootUser , message: 'User is logged in'})
     else
         return res.status(401).json({message: 'No User Logged in'})
 })
