@@ -10,6 +10,7 @@ import Quiz from './pages/Quiz';
 import Leaderoard from './pages/Leaderoard';
 import Duel from './pages/Duel';
 import Docs from './pages/Docs';
+import DuelQuiz from './pages/DuelQuiz';
 
 
 export const UserContext = createContext();
@@ -35,6 +36,7 @@ const App = () => {
             <Route path="/leaderboard" element={<Leaderoard/>}/>
             <Route path="/quiz" element={<Quiz/>} />
             <Route path="/docs" element={<Docs/>} />
+            <Route path="/duelquiz" element={<DuelQuiz/>} />
           </Routes>
           
         </div>

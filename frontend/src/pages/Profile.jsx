@@ -5,8 +5,6 @@ import axios from 'axios';
 // import { useStateContext } from '../context'
 
 const Profile = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [campaigns, setCampaigns] = useState([]);
 
   const fetchCampaigns = () => {
 
@@ -25,19 +23,8 @@ const Profile = () => {
     .catch((e)=>{console.log(e)})
   }
 
-  useEffect(() => {
-    setIsLoading(true);
-    setTimeout(() => {
-      fetchCampaigns();
-    },700)
-  }, []);
-
   return (
-    <DisplayElements 
-      title="Your Campaigns"
-      isLoading={isLoading}
-      campaigns={campaigns}
-    />
+    <></>
   )
 }
 

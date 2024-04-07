@@ -13,11 +13,12 @@ import { Avatar, AvatarIcon } from '@nextui-org/react';
 import Modal from './Modal';
 import {toast} from 'react-toastify'
 import axios from 'axios';
+import './progress.css'
 
 const Navbar = () => {
   const {state , dispatch} = useContext(UserContext)
   const navigate = useNavigate();
-  const [isActive, setIsActive] = useState('dashboard');
+  const [isActive, setIsActive] = useState('Home');
   const [toggleDrawer, setToggleDrawer] = useState(false);
   const [searchValue , setSearchValue] = useState("");
   let navlinksList;
@@ -38,29 +39,7 @@ const Navbar = () => {
     })
   },[])
 
-  const ProgressBar = () => {
-    const circleStyle = {
-      stroke: 'hsl(250, 70%, 50%)', // Adjust color as needed
-      strokeLinecap: 'round',
-      strokeWidth: 8,
-    };
-  
-    const radius = 25; // Adjust radius as needed
-    const circumference = 2 * Math.PI * radius;
-  
-    const fill = (progress / 100) * circumference;
-  
-    return (
-      <div className="progress-bar">
-        <svg width={radius * 2} height={radius * 2}>
-          <circle cx={radius} cy={radius} r={radius} style={circleStyle} />
-          <circle cx={radius} cy={radius} r={radius} fill="transparent" strokeDasharray={circumference} strokeDashoffset={fill} />
-        </svg>
-        <span className="level">Level {level}</span>
-      </div>
-    );
-  };
-  
+
 
   return (
     <div className="flex md:flex-row flex-col-reverse justify-between mb-[35px] gap-6 ">

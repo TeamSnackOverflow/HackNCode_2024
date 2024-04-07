@@ -5,7 +5,7 @@ import './quiz.css'
 import axios from 'axios'
 import { toast } from 'react-toastify';
 
-const Quiz = () => {
+const DuelQuiz = () => {
   const [activeQuestion, setActiveQuestion] = useState(0)
   const [selectedAnswer, setSelectedAnswer] = useState('')
   const [showResult, setShowResult] = useState(false)
@@ -57,10 +57,17 @@ const Quiz = () => {
 
   const addLeadingZero = (number) => (number > 9 ? number : `0${number}`)
 
+  const [timerExpiryTimestamp] = useState(new Date().getTime() + 600000); // 10 minutes in milliseconds
+  const { seconds, minutes, isRunning } = useTimer({ expiryTimestamp: timerExpiryTimestamp, autoStart: true });
+
   return (
     <div className="flex justify-center">
-      <h1 className="font-epilogue font-semibold font-['Ubuntu'] text-xl pb-4 md:text-4xl text-white text-center md:text-left">Daily Quiz</h1>
-      <div className="quiz-container -ml-[200px]">
+      <h1 className="font-epilogue font-semibold font-['Ubuntu'] text-xl pb-4 md:text-4xl text-white text-center md:text-left">Duel against a Friend</h1>
+      <div className="quiz-container -ml-[400px]">
+      <div className="timer-container absolute top-1/3 right-1/3">
+          {isRunning && notFinished && <p className="timer">Time Left: {minutes}:{seconds.toString().padStart(2, '0')}</p>}
+          {!isRunning && <p className="timer-expired">Time Expired</p>}
+        </div>
       {!showResult ? (
         <div>
           <div>
@@ -109,4 +116,4 @@ const Quiz = () => {
   )
 }
 
-export default Quiz
+export default DuelQuiz
