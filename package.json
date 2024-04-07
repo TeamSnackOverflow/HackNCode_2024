@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"cd frontend && npm run dev -- --host\" \"cd backend && nodemon index.js\""
+    "start": "concurrently \"cd frontend && npm run dev -- --host\" \"cd backend && node index.js\""
   },
   "repository": {
     "type": "git",
@@ -23,8 +23,6 @@
     "concurrently": "^8.2.2",
     "file-saver": "^2.0.5",
     "fs": "^0.0.1-security",
-    "react-canvas-draw": "^1.2.1",
-    "react-konva": "^18.2.10",
     "react-sketch-canvas": "^6.2.0",
     "react-typed": "^2.0.12",
     "typewriter-effect": "^2.21.0",

@@ -11,7 +11,7 @@ const Search = () => {
   const { title } = useParams();
 
   const fetchCampaigns = () => {
-    axios.get(`http://localhost:5000/searchCampaigns?searchValue=${title}`)
+    axios.get(`http://localhost:8000/searchCampaigns?searchValue=${title}`)
       .then((res) => {
         setCampaigns(res.data)
         setIsLoading(false);

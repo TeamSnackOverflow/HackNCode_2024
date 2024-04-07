@@ -29,7 +29,7 @@ const Navbar = () => {
   }
 
   useEffect( () => {
-    axios.get('http://localhost:5000/checkLoggedUser', {withCredentials : true})
+    axios.get('http://localhost:8000/checkLoggedUser', {withCredentials : true})
     .then((res) => {
       if(res.status === 200)
         dispatch({type: "USER" , payload: true})

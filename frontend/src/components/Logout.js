@@ -5,7 +5,7 @@ import { UserContext } from "../App"
 import { useNavigate } from "react-router-dom"
 
 const Logout = () => {
-    axios.get('http://localhost:5000/logout', {withCredentials: true})
+    axios.get('http://localhost:8000/logout', {withCredentials: true})
         .then((res) => {
             if(res.status == 200)
             {

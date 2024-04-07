@@ -1,8 +1,11 @@
 from flask import Flask, request, jsonify
 from PIL import Image  # For image processing
 from DECIMER import predict_SMILES
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'bmp'}
 
@@ -37,4 +40,4 @@ def process_image():
     return jsonify({'response': output})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=8080,debug=True)

@@ -12,7 +12,7 @@ function Leaderoard() {
     useEffect(() => {
       setIsLoading(true);
       setTimeout(()=>{
-        axios.get(`http://localhost:5000/viewAllUsers`)
+        axios.get(`http://localhost:8000/viewAllUsers`)
         .then((res)=>{
           setUsers(res.data)
           console.log(res.data)

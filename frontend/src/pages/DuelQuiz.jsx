@@ -37,7 +37,7 @@ const DuelQuiz = () => {
       setActiveQuestion(0)
       setShowResult(true)
       setNotFinished(false)
-      axios.post('http://localhost:5000/addPoints', {points: (result.correctAnswers)*20}, {withCredentials: true})
+      axios.post('http://localhost:8000/addPoints', {points: (result.correctAnswers)*20}, {withCredentials: true})
       .then((res)=>{
         console.log('Added: '+ (result.correctAnswers)*20)
         toast.success(res.data.message)
