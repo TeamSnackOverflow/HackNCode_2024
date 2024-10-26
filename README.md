@@ -32,4 +32,4 @@ Catalyst is built using cutting-edge technologies to deliver a seamless user exp
 - Backend: Python, Flask framework
 - Database: MongoDB
 - AI: LLMs for quiz generation
--     Decimer for compound recognition
+- Decimer for compound recognition
